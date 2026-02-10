@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class VendScript : MonoBehaviour
@@ -27,6 +28,10 @@ public class VendScript : MonoBehaviour
     public List<float> yPositions;
     public float zPosition;
 
+    int vendedItems;
+
+    [SerializeField] TextMeshPro bigVendorDisplay;
+
 
     void Start()
     {
@@ -54,15 +59,14 @@ public class VendScript : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100, mask))
             {
                 Button button = hit.collider.GetComponent<Button>();
+
                 button.Vend();
-                
-            }
-                
+
+                vendedItems++;
+            }    
         }
+
+        bigVendorDisplay.text = (vendedItems > 20) ? "BIG VENDOR!!!" : "";
     }
 
-    public void vend(int item)
-    {
-
-    }
 }

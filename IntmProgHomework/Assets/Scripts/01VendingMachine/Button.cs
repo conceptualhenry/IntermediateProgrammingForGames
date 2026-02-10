@@ -21,7 +21,7 @@ public class Button : MonoBehaviour
     public yPositions yPosition;
     float zPos = 0;
 
-    bool vendAllowed = true;
+    public bool vendAllowed = true;
 
     void Start()
     {      
